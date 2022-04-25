@@ -1,7 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, Table, Text
 from sqlalchemy.orm import relationship
-
-from config.database import engine, Base,SessionLocal
+from config.database import engine, Base
 
 EpisodeCharacterRelation = Table('episodeCharacterRelation', Base.metadata,
     Column('id', Integer, primary_key=True, autoincrement=True),

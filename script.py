@@ -2,7 +2,7 @@ import json
 from models.characterWithEpisode import Episode, Character
 from crud.character import create_character
 from crud.episode import create_episode
-from crud.characterEpisode import create_episodeCharacterRelation
+from crud.characterEpisode import create_episode_character_relation
 from schemas.characterEpisode import episodeCharacterRelationCreate
 from config.database import SessionLocal
 
@@ -24,5 +24,5 @@ for temp_data in data_dict_characters:
     create_character(session,ch)
     for ep_id in temp_data['episode']:
         epChr=episodeCharacterRelationCreate(character_id=temp_data['id'],episode_id=ep_id)
-        create_episodeCharacterRelation(session,epChr)
+        create_episode_character_relation(session,epChr)
 

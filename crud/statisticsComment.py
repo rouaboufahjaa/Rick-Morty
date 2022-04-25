@@ -1,4 +1,3 @@
-from fastapi import HTTPException
 import pandas as pd
 import numpy as np
 
@@ -19,7 +18,7 @@ def count_letters_comments_per_episode():
     df.to_csv('csv/number_letter_comment_per_episode.csv')
 
 
-def number_comments_with_rejected_status_per_episode():
+def count_comments_with_rejected_status_per_episode():
     df=pd.read_csv('csv/copyComment_to.csv')
     df=df[df['type'] == 'Episode']
     df=df[df['status'] == 'Rejected']

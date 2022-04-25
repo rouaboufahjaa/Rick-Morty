@@ -1,9 +1,9 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter
 from fastapi_pagination import  Page, add_pagination, paginate
 from config.database import SessionLocal
 from typing import List, Optional
 from models.characterWithEpisode import Character
-from schemas.character import character, CharacterCreate
+from schemas.character import character
 
 
 app = APIRouter()

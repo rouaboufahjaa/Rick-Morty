@@ -1,4 +1,3 @@
-import os
 from datetime import timedelta, datetime
 from typing import Union, Optional
 from fastapi.security import OAuth2PasswordBearer

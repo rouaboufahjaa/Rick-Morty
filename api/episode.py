@@ -1,7 +1,7 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter
 from config.database import SessionLocal
 from models.characterWithEpisode import Episode
-from schemas.episode import episode, EpisodeCreate
+from schemas.episode import episode
 from typing import List
 
 app = APIRouter()

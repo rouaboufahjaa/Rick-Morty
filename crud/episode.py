@@ -5,11 +5,11 @@ from models.characterWithEpisode import Episode
 
 session=SessionLocal()
 def create_episode(db: Session, ep_data: EpisodeCreate):
-    db_Episode=Episode(id=ep_data.id,name=ep_data.name,air_date=ep_data.air_date,episode=ep_data.episode)
-    db.add(db_Episode)
+    db_episode=Episode(id=ep_data.id,name=ep_data.name,air_date=ep_data.air_date,episode=ep_data.episode)
+    db.add(db_episode)
     db.commit()
-    db.refresh(db_Episode)
-    return db_Episode
+    db.refresh(db_episode)
+    return db_episode
 
 
 def add_description_episode(title:str,description:str):

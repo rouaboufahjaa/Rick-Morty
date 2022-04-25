@@ -9,9 +9,9 @@ from models.characterWithEpisode import EpisodeCharacterRelation
 
 
 session=SessionLocal()
-def create_episodeCharacterRelation(db: Session, epChr_data: episodeCharacterRelationCreate):
-    episode_character = EpisodeCharacterRelation.insert().values(character_id=epChr_data.character_id, episode_id=epChr_data.episode_id)
+def create_episode_character_relation(db: Session, ep_chr_data: episodeCharacterRelationCreate):
+    episode_character = EpisodeCharacterRelation.insert().values(character_id=ep_chr_data.character_id, episode_id=ep_chr_data.episode_id)
     session.execute(episode_character)
     session.commit()
-    return epChr_data
+    return ep_chr_data
 

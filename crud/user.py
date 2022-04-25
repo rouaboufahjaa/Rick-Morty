@@ -1,6 +1,5 @@
 from typing import List
 from sqlalchemy.orm import Session
-from fastapi import HTTPException
 from security.security import hash_password
 from schemas.user import UserCreateSchema, UserSchema
 from models.user import User
