@@ -1,0 +1,3 @@
+,character_id,episode_id,type,comment
+0,1.0,1,CharacterInEpisode,string
+1,,1,Episode,string

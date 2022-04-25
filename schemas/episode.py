@@ -7,6 +7,7 @@ class EpisodeBase(BaseModel):
     name: str
     air_date : str
     episode : str
+    description : Optional[str] = None
 
 class EpisodeCreate(EpisodeBase):
     pass

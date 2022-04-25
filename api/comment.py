@@ -19,13 +19,6 @@ def get_comments():
     db_comments = session.query(Comment).all()
     return paginate(db_comments)
 
-
-
-@app.get('/exportComments/')
-def export_comments():
-    get_comment(session)
-    return {'message': 'Comments are exported into csv'}
-
 @app.post('/addCommentEpisode')
 def create_episode_comment(comment:EpisodeComment):
     comment_episode=create_comment_episode(session,comment)
@@ -66,6 +59,11 @@ def update_comment(id: int, comment_update: CommentUpdate)->Comment:
         return comment_info
     except Exception:
         return Response("Internal server error", status_code=500)
+
+@app.get('/exportComments/')
+def export_comments():
+    get_comment(session)
+    return {'message': 'Comments are exported into csv'}
 
 
 

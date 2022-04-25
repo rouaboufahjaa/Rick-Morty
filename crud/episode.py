@@ -10,3 +10,11 @@ def create_episode(db: Session, ep_data: EpisodeCreate):
     db.commit()
     db.refresh(db_Episode)
     return db_Episode
+
+
+def add_description_episode(title:str,description:str):
+    episode_info  = session.query(Episode).filter(Episode.name== title).scalar()
+    if episode_info:
+        episode_info.description=description
+        session.commit()
+        session.refresh(episode_info)

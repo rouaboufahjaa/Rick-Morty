@@ -29,6 +29,7 @@ class Episode(Base):
     name = Column(String(115), unique=False, index=False, nullable=True)
     air_date = Column(String(115), unique=False, index=True)
     episode= Column(String(32), unique=False, index=False, nullable=True)
+    description=Column(Text, unique=False, index=False, nullable=True)
     characters = relationship("Character",
                     secondary=EpisodeCharacterRelation,
                     back_populates="episodes")
