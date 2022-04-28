@@ -18,4 +18,5 @@ class EpisodeSchema(EpisodeBase):
     id: int
 
     class Config:
+        """Config."""
         orm_mode = True

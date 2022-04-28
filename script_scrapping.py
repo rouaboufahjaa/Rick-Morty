@@ -1,14 +1,18 @@
 """Script scrapping."""
 import os
-from selenium import webdriver
-from bs4 import BeautifulSoup
 import pandas as pd
-from webdriver_manager.chrome import ChromeDriverManager
 import requests
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from bs4 import BeautifulSoup
 from crud.episode import add_description_episode
 
-
-driver = webdriver.Chrome(ChromeDriverManager().install())
+chrome_options = Options()
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument("--window-size=1200x800")
+chrome_options.add_argument('--disable-dev-shm-usage')
+driver = webdriver.Chrome(options=chrome_options)
 community_episodes = []
 community_images=[]
 SAVE_PATH='thumbnails'
@@ -37,5 +41,5 @@ for sn in range(1,7):
 list_attr = ['episode_number','title','season', 'description']
 community_episodes = pd.DataFrame(community_episodes, columns = list_attr)
 community_images=pd.DataFrame(community_images, columns = ['thumbnail'])
-community_episodes.to_csv('csv/description.csv')
-community_images.to_csv('csv/thumbnail.csv')
+community_episodes.to_csv('/RickeyMorty/csv/description.csv')
+community_images.to_csv('/RickeyMorty/csv/thumbnail.csv')
