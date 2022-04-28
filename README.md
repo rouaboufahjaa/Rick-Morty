@@ -45,8 +45,10 @@ Steps
 - docker-compose exec app sh </br>
 - python3 script.py </br>
 - python3 script_scrapping.py </br>
-
+</br>
 
 5-Go to 0.0.0.0:8000/docs 
+
 </br>
+
 6-Test apis. 
