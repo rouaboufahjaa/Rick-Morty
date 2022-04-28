@@ -6,13 +6,15 @@ The technical requirements for this project are as follows:
 - Use of Python 3.8.
 - Use of a relational SGDB: MySQL
 - Use of FastApi
-Commands
-- uvicorn --reload main:app
-- pip3 install fastapi
-- pip3 install SQLAlchemy
-- pip3 install uvicorn
-- pip3 install fastapi-pagination
-- pip3 install fastapi-security
-- pip3 install bs4
-- pip3 install selenium
-- pip3 install webdriver-manager
+Steps
+1- Clone the project : https://github.com/rouaboufahjaa/Rick-Morty.git
+2-Create database : 
+- docker-compose exec db sh 
+- mysql -uroot -p
+- create database media;
+3-Make start
+4-Run scripts
+- docker-compose exec app sh
+- python3 script.py
+5-Go to 0.0.0.0:8000/docs
+6-Test apis.
