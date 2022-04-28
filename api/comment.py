@@ -3,7 +3,7 @@ from fastapi import APIRouter
 from fastapi_pagination import  Page, add_pagination, paginate
 from config.database import SessionLocal
 from schemas.comment import CommentSchema, CommentBase, EpisodeComment, CharacterComment, CommentUpdate
-from crud.comment import create_comment, create_comment_episode, create_comment_character
+from crud.comment import create_comment, create_comment_episode, create_comment_character, get_exported_comment
 from models.comment import Comment
 
 
@@ -38,6 +38,12 @@ def get_comments_by_id(id_comment:int):
     """Get comments by id."""
     db_comments = session.query(Comment).get(id_comment)
     return db_comments
+
+@app.get('/ExportComments')
+def export_comments():
+    """ Export comments API."""
+    get_exported_comment(session)
+    return {'message': 'Comments are exported into csv'}
 
 @app.delete("/comment/{id}")
 def delete_comment_info(id_comment: int):

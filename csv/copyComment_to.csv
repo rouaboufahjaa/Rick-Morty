@@ -1,4 +1,7 @@
 ,character_id,episode_id,type,comment,status
-0,1.0,1.0,CharacterInEpisode,string,New
-1,,1.0,Episode,string,New
-2,1.0,,Character,string,New
+0,1.0,1,CharacterInEpisode,string,New
+1,,1,Episode,string,New
+2,,2,Episode,string,New
+3,,3,Episode,string,New
+4,,5,Episode,string,Rejected
+5,,6,Episode,string,Rejected

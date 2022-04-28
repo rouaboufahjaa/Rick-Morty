@@ -35,8 +35,8 @@ def create_comment_character(db_session: Session, comment_data: CharacterComment
 
 
 
-def get_comment(db_session: Session):
+def get_exported_comment(db_session: Session):
     """Get comments."""
     comment=db_session.query(Comment.character_id,Comment.episode_id,Comment.type,Comment.comment,Comment.status).all()
     df_comment = pd.DataFrame(comment, columns=['character_id','episode_id','type','comment','status'])
-    df_comment.to_csv('csv/copyComment_to.csv',index=True)
+    df_comment.to_csv('/RickeyMorty/csv/copyComment_to.csv',index=True)
