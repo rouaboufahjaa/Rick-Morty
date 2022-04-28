@@ -28,7 +28,6 @@ Steps
 </br>
 
 2-Create database : 
-
 </br>
 - docker-compose exec db sh  </br>
 - mysql -uroot -p </br>
@@ -47,8 +46,7 @@ Steps
 - python3 script.py </br>
 - python3 script_scrapping.py </br>
 
+
 5-Go to 0.0.0.0:8000/docs 
-
 </br>
-
 6-Test apis. 
