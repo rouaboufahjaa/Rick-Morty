@@ -1,19 +1,26 @@
+"""User."""
 from pydantic import BaseModel
 from pydantic import EmailStr
 
 
 class UserBase(BaseModel):
-   email: EmailStr
-class UserSchema(UserBase):
-   lname: str
-   fname: str
+    """UserBase."""
+    email: EmailStr
 
-   class Config:
+class UserSchema(UserBase):
+    """UserSchema."""
+    lname: str
+    fname: str
+
+    class Config:
+        """Config."""
         orm_mode = True
 
 class UserCreateSchema(UserSchema):
+    """UserCReateSchema."""
     password: str
 
     class Config:
+        """Config."""
         orm_mode = False
-
+        

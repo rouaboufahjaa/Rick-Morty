@@ -1,3 +1,4 @@
+"""Comment."""
 from sqlalchemy import Column, Integer, String, ForeignKey, Enum
 from sqlalchemy.orm import relationship
 from config.database import engine, Base
@@ -6,6 +7,7 @@ from models.enums import CommentType, StatusType
 
 
 class Comment(Base):
+    """Comment."""
     __tablename__ = "comment"
     id = Column(Integer, primary_key=True, autoincrement=True)
     character_id = Column(Integer,ForeignKey('character.id'),index=False, nullable=True)
@@ -15,7 +17,5 @@ class Comment(Base):
     character = relationship("Character")
     episode = relationship("Episode")
     status= Column(Enum(StatusType))
-    
-
 
 Base.metadata.create_all(engine)

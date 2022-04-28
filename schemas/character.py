@@ -1,8 +1,10 @@
+"""Character."""
 from typing import List
 from pydantic import BaseModel
-from schemas.episode import episode
+from schemas.episode import EpisodeSchema
 
 class CharacterBase(BaseModel):
+    """CharacterBase."""
     name : str
     status : str
     species : str
@@ -10,10 +12,13 @@ class CharacterBase(BaseModel):
     gender : str
 
 class CharacterCreate(CharacterBase):
+    """CharacterCreate."""
     episode_ids: List[int] = []
 
-class character(CharacterBase):
-    episodes: List[episode] = []
+class CharacterSchema(CharacterBase):
+    """Character."""
+    episodes: List[EpisodeSchema] = []
 
     class Config:
+        """Config."""
         orm_mode = True

@@ -1,10 +1,11 @@
+"""Security."""
 from datetime import timedelta, datetime
 from typing import Union, Optional
 from fastapi.security import OAuth2PasswordBearer
 from passlib.context import CryptContext
 from sqlalchemy.orm import Session
-from config.database import SessionLocal
 from jose import jwt
+from config.database import SessionLocal
 from models.user import User
 import config.config as config
 
@@ -19,13 +20,16 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 
 def hash_password(plain_password: str) -> str:
+    """Hashing password."""
     return pwd_context.hash(plain_password)
 
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
+    """A function to verify password."""
     return pwd_context.verify(plain_password, hashed_password)
 
 def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
+    """Create tokens."""
     to_encode = data.copy()
     if expires_delta:
         expires = datetime.utcnow() + expires_delta
@@ -35,14 +39,15 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return encoded_jwt
 
-def get_user_by_email(db: Session, email: str) -> Optional[User]:
-    return db.query(User).filter(User.email == email).first()
+def get_user_by_email(db_session: Session, email: str) -> Optional[User]:
+    """Get user by email."""
+    return db_session.query(User).filter(User.email == email).first()
 
 def authenticate_user(email: str, password: str) -> Union[bool, User]:
+    """Authenticate user."""
     user: User = get_user_by_email(session, email)
     if not user:
         return False
     if not verify_password(password, user.password):
         return False
     return user
-

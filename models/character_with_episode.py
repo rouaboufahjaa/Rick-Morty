@@ -1,3 +1,4 @@
+"""Character with episode."""
 from sqlalchemy import Column, Integer, String, ForeignKey, Table, Text
 from sqlalchemy.orm import relationship
 from config.database import engine, Base
@@ -9,6 +10,7 @@ EpisodeCharacterRelation = Table('episodeCharacterRelation', Base.metadata,
 )
 
 class Character(Base):
+    """Character."""
     __tablename__ = "character"
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(115), unique=False, index=False, nullable=True)
@@ -23,6 +25,7 @@ class Character(Base):
 
 
 class Episode(Base):
+    """Episode."""
     __tablename__ = "episode"
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(115), unique=False, index=False, nullable=True)

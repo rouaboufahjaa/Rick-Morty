@@ -1,3 +1,4 @@
+"""Main function."""
 from fastapi import FastAPI
 import api.episode as episodeApi
 import api.character as characterApi
@@ -18,5 +19,5 @@ app.include_router(statisticsApi.app)
 
 @app.get('/')
 def root_api():
+    """Main function."""
     return {"message": "Rick&Morty Universe"}
-
